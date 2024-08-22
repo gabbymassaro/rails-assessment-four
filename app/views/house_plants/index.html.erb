@@ -5,3 +5,17 @@
     <li><%= link_to plant.plant_type, house_plant_path(plant) %></li>
   <% end %>
 </ol>
+
+<h2>Create New Plant:</h2>
+<%= form_with model: (@house_plant) do |form| %>
+<%= form.label :plant_type %><br>
+<%= form.text_field :plant_type %><br><br>
+
+<%= form.label :height %><br>
+<%= form.text_field :height %><br><br>
+
+<%= form.label "Room Select"%><br>
+<%= form.collection_select :room_id, Room.all, :id, :name, include_blank: "" %><br><br>
+
+<%= form.submit %>
+<% end %>
