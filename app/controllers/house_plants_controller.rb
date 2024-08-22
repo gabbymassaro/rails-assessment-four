@@ -9,16 +9,19 @@ class HousePlantsController < ApplicationController
   end
 
   def create
-    @house_plant = HousePlant.new(plant_params)
+    @house_plant = HousePlant.create(plant_params)
     @room = @house_plant.room
 
     if @house_plant.save
       redirect_to house_plants_path
     else
       flash.now.alert = @house_plant.errors.full_messages.to_sentence
-      @house_plants = HousePlant.all
-      render :index
+      render :new
     end
+  end
+
+  def new
+    @house_plant = HousePlant.new
   end
 
   private
