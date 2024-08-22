@@ -7,7 +7,8 @@
 </ol>
 
 <h2>Create New Plant:</h2>
-<%= form_with model: (@house_plant) do |form| %>
+<div class="alert"><%= flash[:alert] %></div><br>
+<%= form_with model: (@house_plant), local: true do |form| %>
 <%= form.label :plant_type %><br>
 <%= form.text_field :plant_type %><br><br>
 

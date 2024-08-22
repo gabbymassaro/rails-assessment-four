@@ -15,6 +15,7 @@ class HousePlantsController < ApplicationController
     if @house_plant.save
       redirect_to house_plants_path
     else
+      flash.now.alert = @house_plant.errors.full_messages.to_sentence
       @house_plants = HousePlant.all
       render :index
     end
