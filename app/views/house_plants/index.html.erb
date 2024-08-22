@@ -2,6 +2,6 @@
 
 <ol>
   <% @house_plants.each do |plant| %>
-    <li><%= plant.plant_type %></li>
+    <li><%= link_to plant.plant_type, house_plant_path(plant) %></li>
   <% end %>
 </ol>
